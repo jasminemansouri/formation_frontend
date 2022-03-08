@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 mx-auto">
+      <h2>Update menu</h2>
+      <input
+        [(ngModel)]="menu.titre"
+        placeholder="titre"
+        type="text"
+        class="form-control m-2"
+      />
+      <input
+        [(ngModel)]="menu.description"
+        placeholder="description"
+        type="text"
+        class="form-control m-2"
+      />
+      <input
+        (change)="selectImg($event)"
+        placeholder="image"
+        type="file"
+        class="form-control m-2"
+      />
+      <input
+        [(ngModel)]="menu.prix"
+        placeholder="prix"
+        type="number"
+        class="form-control m-2"
+      />
+      <input
+        [(ngModel)]="menu.calories"
+        placeholder="calories"
+        type="number"
+        class="form-control m-2"
+      />
+      <input
+        [(ngModel)]="menu.weight"
+        placeholder="weight"
+        type="number"
+        class="form-control m-2"
+      />
+      <button (click)="modif()" class="btn btn-dark m-2 form-control">
+        save
+      </button>
+    </div>
+  </div>
+</div>

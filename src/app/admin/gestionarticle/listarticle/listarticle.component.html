@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row mt-5" style="display: flex; justify-content: space-between">
+    <h2 class="col-3">article list</h2>
+    <button
+      class="btn btn-outline-info col-2"
+      routerLink="/admin/article/ajout"
+    >
+      add
+    </button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>title</th>
+          <th>description</th>
+          <th>content</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of blogs">
+          <td>
+            <img
+              style="width: 70px"
+              [src]="endpoint.baseUrl + 'getblogimage/' + item.image"
+              alt=""
+            />
+          </td>
+          <td>{{ item.titre }}</td>
+          <td>{{ item.description }}</td>
+          <td [innerHTML]="item.content"></td>
+          <!-- <td>{{ item.content }}</td> -->
+
+          <td>
+            <button
+              [routerLink]="['/admin/article/update', item._id]"
+              class="btn btn-outline-success"
+            >
+              update
+            </button>
+            <button (click)="delete(item._id)" class="btn btn-outline-danger">
+              delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

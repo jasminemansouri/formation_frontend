@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 mx-auto">
+      <h2>Update article</h2>
+      <input
+        [(ngModel)]="blog.titre"
+        placeholder="titre"
+        type="text"
+        class="form-control m-2"
+      />
+      <textarea
+        class="form-control m-2"
+        cols="30"
+        rows="4"
+        [(ngModel)]="blog.description"
+        placeholder="description"
+      ></textarea>
+
+      <div class="form-control m-2">
+        <div class="row">
+          <div class="col-6">
+            <div class="card" style="width: 200px">
+              <img
+                [src]="endpoint.baseUrl + 'getblogimage/' + blog.image"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <p class="card-text">current image</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <img [src]="url" *ngIf="url" />
+              <div class="card-body">
+                <p class="card-text">new image</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input
+        (change)="selectImg($event)"
+        placeholder="image"
+        type="file"
+        class="form-control m-2"
+      />
+      <angular-editor
+        [placeholder]="'Enter text here...'"
+        [(ngModel)]="blog.content"
+        class="form-control m-2"
+      ></angular-editor>
+      <div [innerHtml]="msg" *ngIf="msg" style="color: red"></div>
+      <button (click)="modifier()" class="btn btn-dark m-2 form-control">
+        save
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mt-5" style="display: flex; justify-content: space-between">
+    <h2 class="col-3">menu list</h2>
+    <button class="btn btn-outline-info col-2" routerLink="/admin/ajout">
+      add
+    </button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>title</th>
+          <th>description</th>
+          <th>prix</th>
+          <th>weight</th>
+          <th>calories</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of menus">
+          <td>
+            <img
+              style="width: 70px"
+              [src]="endpoint.baseUrl + 'getmenuimage/' + item.img"
+              alt=""
+            />
+          </td>
+          <td>{{ item.titre }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.prix }}</td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.calories }}</td>
+          <td>
+            <button
+              [routerLink]="['/admin/update', item._id]"
+              class="btn btn-outline-success"
+            >
+              update
+            </button>
+            <button (click)="delete(item._id)" class="btn btn-outline-danger">
+              delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

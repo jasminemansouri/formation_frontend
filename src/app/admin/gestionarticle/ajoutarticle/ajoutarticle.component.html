@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 mx-auto">
+      <h2>Create a new article</h2>
+      <input
+        [(ngModel)]="blog.titre"
+        placeholder="titre"
+        type="text"
+        class="form-control m-2"
+      />
+      <!-- <input
+            [(ngModel)]="blog.description"
+            placeholder="description"
+            type="text"
+            class="form-control m-2"
+          /> -->
+      <textarea
+        class="form-control m-2"
+        cols="30"
+        rows="4"
+        [(ngModel)]="blog.description"
+        placeholder="description"
+      ></textarea>
+
+      <input
+        (change)="selectImg($event)"
+        placeholder="image"
+        type="file"
+        class="form-control m-2"
+      />
+      <!-- <input
+        [(ngModel)]="blog.content"
+        placeholder="content"
+        type="text"
+        class="form-control m-2"
+      /> -->
+      <angular-editor
+        [placeholder]="'Enter text here...'"
+        [(ngModel)]="blog.content"
+        class="form-control m-2"
+      ></angular-editor>
+
+      <button (click)="ajouter()" class="btn btn-dark m-2 form-control">
+        create
+      </button>
+    </div>
+  </div>
+</div>

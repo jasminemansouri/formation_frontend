@@ -10,6 +10,7 @@ import { GestionmenuComponent } from './admin/gestionmenu/gestionmenu.component'
 import { ListmenuComponent } from './admin/gestionmenu/listmenu/listmenu.component';
 import { UpdatemenuComponent } from './admin/gestionmenu/updatemenu/updatemenu.component';
 import { ClientComponent } from './client/client.component';
+import { AuthGuard } from './login/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
-    path: 'admin',
+    path: 'admin', canActivate:[AuthGuard],
     component: AdminComponent,
     children: [
       {
